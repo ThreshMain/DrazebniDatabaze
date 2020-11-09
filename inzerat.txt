@@ -1,0 +1,23 @@
+drazba:
+
+Auto
+    String nazev
+    float cena
+    Pohon pohonVozidla
+    int pocetDveri
+    Date datumVyroby
+    Uzivatel majitel
+    String popi
+Drazba
+    Auto
+Nabidka
+    Uzivatel prihazujici
+    float castka
+Pohon
+    DIESEL,BENZIN,LPG,ELEKTRO
+Uzivatel
+   private String userName;
+    private Password heslo;
+    private String mail;
+    private String telefon;
+    private String adresa;

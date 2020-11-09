@@ -1,4 +1,6 @@
-public record Nabidka(Uzivatel prihazujici,float castka) {
+package main.java;
+
+public record Nabidka(Uzivatel prihazujici, float castka) {
 	public Nabidka{
 		if (prihazujici == null) {
 			throw new IllegalArgumentException("Prihazuji nemuze byt null");

@@ -1,3 +1,5 @@
+package main.java;
+
 import java.rmi.NoSuchObjectException;
 import java.util.Date;
 

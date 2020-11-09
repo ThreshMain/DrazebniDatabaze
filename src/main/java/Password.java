@@ -1,4 +1,6 @@
-import Validator.Validator;
+package main.java;
+
+import main.java.Validator.PasswordValidator;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;

@@ -1,4 +1,4 @@
-package Validator;
+package main.java.Validator;
 
 public abstract class Validator {
     public static String pattern;

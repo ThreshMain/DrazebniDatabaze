@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.Comparator;
 
 public class SortByCenna implements Comparator<Auto> {
