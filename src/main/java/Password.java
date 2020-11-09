@@ -11,6 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Password {
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
     private String passwordHash;
 
     public Password(String unHashedPassword) throws InvalidKeySpecException, NoSuchAlgorithmException {
