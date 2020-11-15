@@ -1,4 +1,4 @@
-drazba:
+drazba:;
 
 Auto
     String nazev
