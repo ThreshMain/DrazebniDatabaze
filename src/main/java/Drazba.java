@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.Stack;
 
 public class Drazba {
@@ -11,7 +9,7 @@ public class Drazba {
 			throw new IllegalArgumentException("Drazena polozka nemuze byt NULL");
 		}
 		this.drazenaPolozka = drazenaPolozka;
-		this.prihozy = new Stack<Nabidka>();
+		this.prihozy = new Stack<>();
 	}
 
 	@Override
@@ -31,8 +29,8 @@ public class Drazba {
 	}
 
 	public void Prihod(Nabidka nabidka) {
-		if (nabidka.castka() >= drazenaPolozka.cena()) {
-			if (this.prihozy.size() == 0 || nabidka.castka() > this.prihozy.peek().castka()) {
+		if (nabidka.getCastka() >= drazenaPolozka.getCena()) {
+			if (this.prihozy.size() == 0 || nabidka.getCastka() > this.prihozy.peek().getCastka()) {
 				this.prihozy.add(nabidka);
 			} else {
 				throw new IllegalArgumentException("Nabidka musi byt vetsi nez posledni nabidka");

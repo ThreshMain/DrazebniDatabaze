@@ -1,6 +1,4 @@
-package main.java;
-
-import main.java.Validator.*;
+import Validator.*;
 
 import javax.management.InstanceAlreadyExistsException;
 import java.security.NoSuchAlgorithmException;

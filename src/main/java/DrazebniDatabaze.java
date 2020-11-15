@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.*;
 
 public class DrazebniDatabaze {
@@ -51,7 +49,7 @@ public class DrazebniDatabaze {
 	public Auto Hledej(String nazev) {
 
 		for (Auto auto : auta) {
-			if (auto.nazev().equals(nazev)) {
+			if (auto.getNazev().equals(nazev)) {
 				return auto;
 			}
 		}
