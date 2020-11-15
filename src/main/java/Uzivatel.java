@@ -33,8 +33,8 @@ public class Uzivatel {
         return adresa;
     }
 
-    public LinkedList<String> getPersonalInfo(){
-        LinkedList<String> allInfo=new LinkedList<>();
+    public LinkedList<String> getPersonalInfo() {
+        LinkedList<String> allInfo = new LinkedList<>();
         allInfo.add(telefon);
         allInfo.add(mail);
         allInfo.add(adresa);
@@ -47,7 +47,7 @@ public class Uzivatel {
     private String telefon;
     private String adresa;
 
-    public void setJmeno(String jmeno){
+    public void setJmeno(String jmeno) {
         if (jmeno == null) {
             throw new IllegalArgumentException("Jmeno nemuze byt null");
         }

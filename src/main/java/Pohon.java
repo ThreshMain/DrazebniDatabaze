@@ -1,3 +1,3 @@
 public enum Pohon {
-	DIESEL,BENZIN,LPG,ELEKTRO
+    DIESEL, BENZIN, LPG, ELEKTRO
 }
