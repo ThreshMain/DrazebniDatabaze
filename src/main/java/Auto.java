@@ -6,7 +6,8 @@ public class Auto implements Comparable<Auto> {
     private Pohon pohonVozidla;
     private int pocetDveri;
     private Date datumVyroby;
-
+    private Uzivatel majitel;
+    private String popis;
 
     public String getNazev() {
         return nazev;
@@ -34,32 +35,6 @@ public class Auto implements Comparable<Auto> {
 
     public String getPopis() {
         return popis;
-    }
-
-    private Uzivatel majitel;
-    private String popis;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Auto auto = (Auto) o;
-        return nazev.equals(auto.nazev);
-    }
-
-    @Override
-    public int hashCode() {
-        return nazev.hashCode();
-    }
-
-    public void setNazev(String nazev) {
-        if (nazev == null) {
-            throw new IllegalArgumentException("Nazev nemuze byt NULL");
-        }
-        if (nazev.length() < 3) {
-            throw new IllegalArgumentException("Nazev nemuze byt mene nez 3 znaky");
-        }
-        this.nazev = nazev;
     }
 
     public void setCena(float cena) {
@@ -113,6 +88,16 @@ public class Auto implements Comparable<Auto> {
         this.popis = popis;
     }
 
+    public void setNazev(String nazev) {
+        if (nazev == null) {
+            throw new IllegalArgumentException("Nazev nemuze byt NULL");
+        }
+        if (nazev.length() < 3) {
+            throw new IllegalArgumentException("Nazev nemuze byt mene nez 3 znaky");
+        }
+        this.nazev = nazev;
+    }
+
     public Auto(String nazev, float cena, Pohon pohonVozidla, int pocetDveri, Date datumVyroby, Uzivatel majitel, String popis) {
         setNazev(nazev);
         setCena(cena);
@@ -126,5 +111,19 @@ public class Auto implements Comparable<Auto> {
     @Override
     public int compareTo(Auto o) {
         return o.nazev.compareTo(this.nazev);
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Auto auto = (Auto) o;
+        return nazev.equals(auto.nazev);
+    }
+
+    @Override
+    public int hashCode() {
+        return nazev.hashCode();
     }
 }
