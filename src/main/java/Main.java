@@ -5,13 +5,13 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Uzivatel martin = new Uzivatel();
+            Uzivatel martin = new Uzivatel("kolobozka6b", "martinkos007@gmail.com", "Heslo1234");
             martin.setJmeno("Martina");
-            martin.setHeslo("Heslo1234");
+//            martin.setHeslo("Heslo1234");
             martin.setAdresa("Praha 7,17000");
-            martin.setMail("martinkos007@gmail.com");
+//            martin.setMail("martinkos007@gmail.com");
             martin.setTelefon("735986705");
-            martin.setUserName("Kolobozka6b");
+//            martin.setUserName("Kolobozka6b");
             DatabazeUzivatelu.getInstance().AddUzivatele(martin);
             System.out.println(DatabazeUzivatelu.getInstance().AddUzivatele(martin));
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
