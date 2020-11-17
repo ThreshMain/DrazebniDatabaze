@@ -1,23 +1,10 @@
-drazba:
-
-Auto
-    String nazev
-    float cena
-    Pohon pohonVozidla
-    int pocetDveri
-    Date datumVyroby
-    Uzivatel majitel
-    String popi
-Drazba
-    Auto
-Nabidka
-    Uzivatel prihazujici
-    float castka
-Pohon
-    DIESEL,BENZIN,LPG,ELEKTRO
-Uzivatel
-   private String userName;
-    private Password heslo;
-    private String mail;
-    private String telefon;
-    private String adresa;
+Nazev: Felda
+Cena: 19816.165
+Pohon: dieSel
+Pocet dveri: 4
+Datum vyroby: 1999-1-1
+Popis: Auto je v uplne v pohode jonom mu upadly dvere tak jsem je tam prilepl oboustranou paskou ale to je mensi detail.
+Jmeno: Villiger
+Adresa: Vesnicka 13, Zapadakov 1234
+Telefon:
+Mail: vesnican0078@vesnice.x
