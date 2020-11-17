@@ -12,6 +12,14 @@ public class Osoba {
     private String jmeno;
     private String adresa;
 
+    public LinkedList<String> getPersonalInfo() {
+        LinkedList<String> allInfo = new LinkedList<>();
+        allInfo.add(telefon);
+        allInfo.add(mail);
+        allInfo.add(adresa);
+        return allInfo;
+    }
+
     public String getJmeno() {
         return jmeno;
     }
@@ -26,14 +34,6 @@ public class Osoba {
 
     public String getAdresa() {
         return adresa;
-    }
-
-    public LinkedList<String> getPersonalInfo() {
-        LinkedList<String> allInfo = new LinkedList<>();
-        allInfo.add(telefon);
-        allInfo.add(mail);
-        allInfo.add(adresa);
-        return allInfo;
     }
 
     public void setJmeno(String jmeno) {
@@ -73,6 +73,16 @@ public class Osoba {
         if (o == null || getClass() != o.getClass()) return false;
         Osoba osoba = (Osoba) o;
         return jmeno.equals(osoba.jmeno);
+    }
+
+    @Override
+    public String toString() {
+        return "Osoba{" +
+                "telefon='" + telefon + '\'' +
+                ", mail='" + mail + '\'' +
+                ", jmeno='" + jmeno + '\'' +
+                ", adresa='" + adresa + '\'' +
+                '}';
     }
 
     @Override

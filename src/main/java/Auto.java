@@ -69,22 +69,20 @@ public class Auto implements Comparable<Auto> {
         if (majitel == null) {
             throw new IllegalArgumentException("Majitel polozky nemuze byt null");
         }
-
         if (!DatabazeUzivatelu.getInstance().getUzivatel(majitel.getUserName()).equals(majitel)) {
             throw new IllegalArgumentException("Majitel musi byt v databazi a musi byt upToDate");
         }
         this.majitel = majitel;
+        if (popis != null) {
+            this.checkPopis();
+        }
     }
 
     public void setPopis(String popis) {
         if (popis == null) {
             throw new IllegalArgumentException("Popis polozky nemuze byt null");
         }
-        for (String info : majitel.getPersonalInfo()) {
-            if (popis.contains(info)) {
-                throw new IllegalArgumentException("Popis nemuze obsahovat osobni udaje Majitele");
-            }
-        }
+        this.checkPopis(popis);
         this.popis = popis;
     }
 
@@ -108,6 +106,27 @@ public class Auto implements Comparable<Auto> {
         setPopis(popis);
     }
 
+    public Auto() {
+    }
+
+    public boolean isValid() {
+        return nazev != null && pohonVozidla != null && majitel != null;
+    }
+
+    public void checkPopis() {
+        this.checkPopis(this.popis);
+    }
+
+    public void checkPopis(String popis) {
+        if (majitel != null) {
+            for (String info : majitel.getPersonalInfo()) {
+                if (popis.contains(info)) {
+                    throw new IllegalArgumentException("Popis nemuze obsahovat osobni udaje Majitele");
+                }
+            }
+        }
+    }
+
     @Override
     public int compareTo(Auto o) {
         return o.nazev.compareTo(this.nazev);
@@ -126,4 +145,18 @@ public class Auto implements Comparable<Auto> {
     public int hashCode() {
         return nazev.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "Auto{" +
+                "nazev='" + nazev + '\'' +
+                ", cena=" + cena +
+                ", pohonVozidla=" + pohonVozidla +
+                ", pocetDveri=" + pocetDveri +
+                ", datumVyroby=" + datumVyroby +
+                ", majitel=" + majitel +
+                ", popis='" + popis + '\'' +
+                '}';
+    }
+
 }

@@ -4,7 +4,7 @@ public class DatabazeUzivatelu {
     private final HashMap<String, Uzivatel> uzivatele;
     private static DatabazeUzivatelu instance = null;
 
-    public boolean AddUzivatele(Uzivatel uzivatel) {
+    public boolean addUzivatele(Uzivatel uzivatel) {
         if (this.uzivatele.containsKey(uzivatel.getUserName())) {
             return false;
         }
@@ -12,11 +12,11 @@ public class DatabazeUzivatelu {
         return true;
     }
 
-    public boolean Contains(Uzivatel uzivatel) {
+    public boolean contains(Uzivatel uzivatel) {
         return uzivatele.containsKey(uzivatel.getUserName());
     }
 
-    public boolean Contains(String userName) {
+    public boolean contains(String userName) {
         return uzivatele.containsKey(userName);
     }
 

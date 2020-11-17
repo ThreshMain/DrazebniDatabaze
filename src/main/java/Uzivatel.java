@@ -10,14 +10,6 @@ public class Uzivatel extends Osoba {
     private Password heslo;
     private String userName;
 
-    public Uzivatel(String userName, String mail, String heslo) throws InvalidKeySpecException, NoSuchAlgorithmException, InstanceAlreadyExistsException {
-        super();
-        setHeslo(heslo);
-        setUserName(userName);
-        setMail(mail);
-    }
-
-
     public Password getHeslo() {
         return heslo;
     }
@@ -27,8 +19,16 @@ public class Uzivatel extends Osoba {
 
     }
 
+    public Uzivatel(String userName, String mail, String heslo) throws InvalidKeySpecException, NoSuchAlgorithmException, InstanceAlreadyExistsException {
+        super();
+        setHeslo(heslo);
+        setUserName(userName);
+        setMail(mail);
+    }
+
+
     public void setUserName(String userName) throws InstanceAlreadyExistsException {
-        if (DatabazeUzivatelu.getInstance().Contains(userName)) {
+        if (DatabazeUzivatelu.getInstance().contains(userName)) {
             throw new InstanceAlreadyExistsException("Uzivatel s timto jmenem je jiz v databazi");
         }
         Validator validator = new UserName();

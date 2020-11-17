@@ -1,3 +1,4 @@
+import javax.management.InstanceAlreadyExistsException;
 import java.util.*;
 
 public class DrazebniDatabaze {
@@ -23,13 +24,13 @@ public class DrazebniDatabaze {
         return instance;
     }
 
-    public void UkonciDazbu() {
+    public void ukonciDazbu() {
         ukonceneDrazby.add(aktualniDrazba);
         aktualniDrazba = frontaDrazeb.poll();
     }
 
-    public boolean ZacniDrazbu(String nazev) {
-        Auto drazebniPolozka = this.Hledej(nazev);
+    public boolean zacniDrazbu(String nazev) {
+        Auto drazebniPolozka = this.hledej(nazev);
         if (aktualniDrazba == null) {
             aktualniDrazba = new Drazba(drazebniPolozka);
             return true;
@@ -38,9 +39,9 @@ public class DrazebniDatabaze {
         return false;
     }
 
-    public boolean ZacniDrazbu(Auto a) throws Exception {
+    public boolean zacniDrazbu(Auto a) throws Exception {
         if (!this.auta.contains(a)) {
-            this.Pridej(a);
+            this.pridej(a);
         }
         if (aktualniDrazba == null) {
             aktualniDrazba = new Drazba(a);
@@ -50,20 +51,20 @@ public class DrazebniDatabaze {
         return false;
     }
 
-    public Auto Hledej(String nazev) {
-
+    public Auto hledej(String nazev) {
         for (Auto auto : auta) {
             if (auto.getNazev().equals(nazev)) {
                 return auto;
             }
         }
         throw new NoSuchElementException("Auto nenalezeno v databazi");
-//		return null;
     }
-
-    public void Pridej(Auto auto) throws Exception {
+    public void pridej(Auto auto) throws InstanceAlreadyExistsException {
+        if(!auto.isValid()){
+            throw new IllegalArgumentException("Drazena polozka nema vsechny potrebne hodnoty");
+        }
         if (!this.auta.add(auto)) {
-            throw new Exception("Auto je uz zapsane v databazi");
+            throw new InstanceAlreadyExistsException("Auto je uz zapsane v databazi");
         }
     }
 
@@ -76,7 +77,7 @@ public class DrazebniDatabaze {
     }
 
     public TreeSet<Auto> getAuta() {
-        return auta;
+        return new TreeSet<>(auta);
     }
 
     public Drazba getAktualniDrazba() {
@@ -84,11 +85,11 @@ public class DrazebniDatabaze {
     }
 
     public Queue<Drazba> getFrontaDrazeb() {
-        return frontaDrazeb;
+        return new ArrayDeque<>(frontaDrazeb);
     }
 
     public LinkedList<Drazba> getUkonceneDrazby() {
-        return ukonceneDrazby;
+        return new LinkedList<>(ukonceneDrazby);
     }
 
 }
